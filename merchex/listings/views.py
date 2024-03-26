@@ -8,13 +8,14 @@ from listings.models import Band
 
 def hello(request):
     bands = Band.objects.all()
-    return render(request, 'listings/hello.html')
+    return render(request, 'listings/hello.html',
+    {'bands': bands})
 
 def about(request):
-    return HttpResponse('<h1>About Us</h1>')
+     return render(request, 'listings/about.html')
 
 def contact(request):
-    return HttpResponse('<h1>Contact Us</h1>')
+    return render (request, 'listings/contact.html')
 
 def listings(request):
-    return HttpResponse('<h1>Listings</h1>')
+    return render(request, 'listings/listings.html')
