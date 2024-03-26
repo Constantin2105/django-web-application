@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from listings.models import Band
+
 # Create your views here.
 
 
+
 def hello(request):
-    return HttpResponse('<h1>Hello Django!</h1>')
+    bands = Band.objects.all()
+    return render(request, 'listings/hello.html')
 
 def about(request):
     return HttpResponse('<h1>About Us</h1>')
